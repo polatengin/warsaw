@@ -71,6 +71,8 @@ namespace microservice_1
             $"{DaprBaseUrl}/invoke/microservice-2/method/ringring",
             new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json")
           );
+
+          await context.Response.WriteAsync(result.StatusCode.ToString());
         });
       });
     }
