@@ -18,6 +18,8 @@ namespace microservice_1
     {
     }
 
+    private readonly HttpClient client = new HttpClient();
+
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
