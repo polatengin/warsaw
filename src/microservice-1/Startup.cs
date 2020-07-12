@@ -64,6 +64,11 @@ namespace microservice_1
             date = new DateTime(),
             message = Guid.NewGuid().ToString("N")
           };
+
+          var result = await client.PostAsync(
+            $"{DaprBaseUrl}/invoke/microservice-2/method/ringring",
+            new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json")
+          );
         });
       });
     }
