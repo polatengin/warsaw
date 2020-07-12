@@ -56,6 +56,8 @@ namespace microservice_1
 
         endpoints.MapGet("/invoke", async context =>
         {
+          var DaprBaseUrl = $"http://localhost:{Environment.GetEnvironmentVariable("DAPR_HTTP_PORT")}/v1.0";
+
           var payload = new
           {
             id = 1,
