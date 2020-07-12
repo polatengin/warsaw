@@ -56,6 +56,12 @@ namespace microservice_1
 
         endpoints.MapGet("/invoke", async context =>
         {
+          var payload = new
+          {
+            id = 1,
+            date = new DateTime(),
+            message = Guid.NewGuid().ToString("N")
+          };
         });
       });
     }
