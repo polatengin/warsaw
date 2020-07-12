@@ -6,5 +6,6 @@
   ],
   "postAttachCommand": "dapr init",
   "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
   },
 }
