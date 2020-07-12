@@ -45,6 +45,11 @@ namespace microservice_1
             date = new DateTime(),
             message = Guid.NewGuid().ToString("N")
           };
+
+          var result = await client.PostAsync(
+            $"{DaprBaseUrl}/publish/order",
+            new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json")
+          );
         });
 
         endpoints.MapGet("/invoke", async context =>
