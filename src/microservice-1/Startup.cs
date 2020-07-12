@@ -37,6 +37,11 @@ namespace microservice_1
         endpoints.MapGet("/send", async context =>
         {
         });
+
+        endpoints.MapGet("/invoke", async context =>
+        {
+        });
+      });
     }
   }
 }
