@@ -50,6 +50,8 @@ namespace microservice_1
             $"{DaprBaseUrl}/publish/order",
             new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json")
           );
+
+          await context.Response.WriteAsync(result.StatusCode.ToString());
         });
 
         endpoints.MapGet("/invoke", async context =>
