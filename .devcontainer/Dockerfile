@@ -3,6 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Configure apt and install packages
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog libicu63 libssl1.1 2>&1 \
     #
@@ -27,6 +28,9 @@ RUN apt-get update \
     && cd /usr/local/bin \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
+    #
+    # Install Dapr
+    && wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash \
     #
     # [Optional] Add sudo support for the non-root user
     && apt-get install -y sudo \
