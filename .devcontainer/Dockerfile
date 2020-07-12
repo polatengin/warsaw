@@ -22,3 +22,8 @@ RUN apt-get update \
     #
     # Install Azure CLI
     && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
+    #
+    # Install kubectl
+    && cd /usr/local/bin \
+    && curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+    && chmod +x ./kubectl \
