@@ -27,3 +27,6 @@ RUN apt-get update \
     && cd /usr/local/bin \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
+    #
+    # [Optional] Add sudo support for the non-root user
+    && apt-get install -y sudo \
