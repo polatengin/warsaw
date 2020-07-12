@@ -34,6 +34,9 @@ namespace microservice_1
         {
           await context.Response.WriteAsync("Hello World!");
         });
+        endpoints.MapGet("/send", async context =>
+        {
+        });
     }
   }
 }
