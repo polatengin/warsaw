@@ -51,6 +51,15 @@ namespace microservice_2
 
           await context.Response.WriteAsync("received");
         });
+
+        endpoints.MapPost("/ringring", async context =>
+        {
+          var cloudEvent = await context.Request.ReadCloudEventAsync();
+
+          Console.WriteLine($"ringring: {JsonSerializer.Serialize(cloudEvent)}");
+
+          await context.Response.WriteAsync("ringring-ed");
+        });
       });
     }
   }
