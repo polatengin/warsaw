@@ -33,6 +33,15 @@ namespace microservice_2
         {
           await context.Response.WriteAsync("Hello World!");
         });
+
+        endpoints.MapGet("/dapr/subscribe", async context =>
+        {
+          var subs = "[ { \"topic\": \"order\", \"route\": \"receive\" } ]";
+
+          Console.WriteLine(subs);
+
+          await context.Response.WriteAsync(subs);
+        });
       });
     }
   }
