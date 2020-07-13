@@ -42,6 +42,15 @@ namespace microservice_2
 
           await context.Response.WriteAsync(subs);
         });
+
+        endpoints.MapPost("/receive", async context =>
+        {
+          var cloudEvent = await context.Request.ReadCloudEventAsync();
+
+          Console.WriteLine($"received: {JsonSerializer.Serialize(cloudEvent)}");
+
+          await context.Response.WriteAsync("received");
+        });
       });
     }
   }
